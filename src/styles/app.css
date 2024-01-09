@@ -1,0 +1,204 @@
+@import url(common.css);
+@import url(app-homeview.css);
+@import url(app-tableview.css);
+@import url(app-welcomeview.css);
+/* ----------------------- 侧边栏 -----------------------*/
+.app-aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 15px;
+  width: 200px;
+  min-height: 100%;
+  background: var(--app-sidesheet-background);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 1px 0px #999;
+  transition: 0.5s;
+  overflow-x: hidden;
+  user-select: none;
+  box-sizing: border-box;
+  z-index: 99;
+}
+
+.app-aside.active {
+  width: 60px;
+  padding: 0;
+}
+
+/* 移动端 */
+.app-aside.active-mobile {
+  width: 200px;
+}
+
+/* 侧边栏头部 */
+.app-aside-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 60px;
+}
+
+.app-aside-header>span {
+  display: none;
+  margin: auto 10px;
+  padding: 0 8px;
+  color: var(--app-text-color);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.app-aside-header>span:hover {
+  background: #f05672;
+  border-radius: 4px;
+}
+
+/* 导航项 */
+.app-aside-content {
+  margin: 0 5px;
+}
+
+.app-aside-content>a {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  width: initial;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.app-aside-content>a.active {
+  background: #f05672;
+}
+
+.app-aside-span-logo {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  margin: 0 5px 0 15px;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 35px;
+  text-align: center;
+  border-radius: 50%;
+  background: rgb(64, 64, 64);
+  background: rgb(159, 164, 172);
+}
+
+.app-aside-span-logo.active {
+  margin: 0 auto !important;
+}
+
+.app-aside-span-text.active {
+  display: none;
+}
+
+
+/* ----------------------- 主区域 -----------------------*/
+.app-main {
+  flex-grow: 1;
+  margin-left: 200px;
+  transition: 0.5s;
+  box-sizing: border-box;
+}
+
+.app-main.active {
+  margin-left: 60px;
+}
+
+/* 移动端 */
+.app-main.active-mobile {
+  margin-left: 0;
+}
+
+/* 头导航 */
+.app-header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  font-size: 16px;
+  text-align: center;
+  height: 40px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 1px 0px #999;
+  z-index: 98;
+}
+
+.app-header .app-header-left,
+.app-header-right {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  user-select: none;
+}
+
+/* 弹窗按钮 */
+.app-header-asidebutton>span {
+  display: block;
+  width: 20px;
+  height: 4px;
+  border-radius: 4px;
+  transition: 0.3s;
+  background: #f05672;
+}
+
+.app-header-asidebutton>span:nth-child(2) {
+  margin: 2px auto;
+}
+
+.app-header-asidebutton:hover span:nth-child(1) {
+  transform: translateX(-5px);
+}
+
+.app-header-asidebutton:hover span:nth-child(3) {
+  transform: translateX(-5px);
+}
+
+.app-header-right>div {
+  width: 20px;
+  transition: 0.3s;
+  padding: 0 4px;
+}
+
+.app-header-right>div:nth-child(1):hover {
+  color: #ffffff;
+  background: #f05672;
+  border-radius: 4px;
+}
+
+
+/* 内容展示 */
+.app-content {
+  min-height: 100vh;
+
+}
+
+.app-footer {
+  flex-grow: 1;
+  height: 60px;
+}
+
+/* 当屏幕到768px时，去掉 .app-main：margin-left的*/
+@media screen and (max-width: 768px) {
+
+  .app-aside {
+    width: 0;
+  }
+
+
+
+  .app-aside-header>span {
+    display: block;
+  }
+
+
+
+  .app-main {
+    margin-left: 0 !important;
+
+  }
+
+}

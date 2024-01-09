@@ -1,0 +1,263 @@
+/* ----------------------- 滑动侧边栏 -----------------------*/
+.app-sidesheet {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.app-sidesheet.position-top {
+    top: 0;
+    left: 0;
+}
+
+.app-sidesheet.position-bottom {
+    bottom: 0;
+    left: 0;
+}
+
+.app-sidesheet.position-left {
+    left: 0;
+    top: 0;
+}
+
+.app-sidesheet.position-right {
+    right: 0;
+    top: 0;
+}
+
+.app-sidesheet.position-top-removemask {
+    top: 0;
+    height: 448px;
+}
+
+.app-sidesheet.position-bottom-removemask {
+    bottom: 0;
+    height: 448px;
+}
+
+.app-sidesheet.position-left-removemask {
+    left: 0;
+    width: 448px;
+}
+
+.app-sidesheet.position-right-removemask {
+    right: 0;
+    width: 448px;
+}
+
+/* 遮罩 */
+.app-sidesheet-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(22, 22, 26, 0.6);
+}
+
+.app-sidesheet-mask.hidden {
+    display: none;
+}
+
+.app-sidesheet-mask.block {
+    display: block;
+}
+
+/* 内容容器 */
+.app-sidesheet-container {
+    position: absolute;
+    width: 448px;
+    height: 100%;
+    padding: 0 24px;
+    background: rebeccapurple;
+    box-sizing: border-box;
+}
+
+.app-sidesheet-container.position-top {
+    top: 0;
+    width: 100%;
+    height: 448px;
+}
+
+.app-sidesheet-container.position-bottom {
+    bottom: 0;
+    width: 100%;
+    height: 448px;
+}
+
+.app-sidesheet-container.position-left {
+    left: 0;
+}
+
+.app-sidesheet-container.position-right {
+    right: 0;
+}
+
+/* 侧边栏头标题 */
+.app-sidesheet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.app-sidesheet-header>span {
+    user-select: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 576px) {}
+
+/* ----------------------- 弹窗 -----------------------*/
+.app-popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    background: var(--app-backdrop-filter-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0s linear 0.4s, z-index 0s linear 0.4s;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 0.05rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #535bf2;
+        border-radius: 1;
+    }
+}
+
+/* 打开弹窗 */
+.app-popup.active {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+    transform: scale(1);
+    z-index: 99;
+}
+
+/* 弹窗容器 */
+.app-popup-container {
+    margin: 60px auto;
+    padding: 20px;
+    width: calc(67.5% - 40px);
+    border-radius: 16px;
+    background: var(--app-theme);
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8);
+    transform-origin: bottom center;
+    transition: transform 400ms ease-in-out;
+}
+
+.app-popup-container.active {
+    transform: scale(1);
+}
+
+/* 关闭弹窗 */
+.app-popup-close {
+    position: sticky;
+    top: 2%;
+    left: 100%;
+    display: inline-block;
+    width: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 50%;
+    transition: 0.5s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.app-popup-close:hover {
+    background: #498ef5;
+    color: #1d1d1f;
+    transform: rotate(360deg);
+}
+
+/* ----------------------- 输入框 -----------------------*/
+.app-input {
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.app-input>input {
+    width: 100%;
+    outline: none;
+    padding: 15px 0;
+    letter-spacing: 2px;
+    text-indent: 10px;
+    border-radius: 10px;
+    background: var(--app-theme);
+    border: 2px solid var(--app-hover-background);
+}
+
+.app-input>label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    padding: 0 10px;
+    font-size: 14px;
+    transform: translateY(-50%);
+    transition: 0.3s;
+}
+
+.app-input>input:focus~label,
+.app-input>input:valid~label {
+    top: 0;
+    left: 4%;
+    color: #498ef5;
+    background: var(--app-theme);
+}
+
+.app-input>input:focus,
+.app-input>input:valid {
+    border: 2px solid #498ef5;
+}
+
+.app-input>label span {
+    color: red;
+}
+
+/* ----------------------- 响应式 -----------------------*/
+@media screen and (max-width: 1068px) {
+
+    /* 弹窗容器 */
+    .app-popup-container {
+        width: calc(90% - 40px) !important;
+    }
+}
+
+/* 针对小屏幕设备的样式 */
+@media screen and (max-width: 576px) {
+
+    /* 弹窗容器 */
+    .app-popup-container {
+        margin: auto;
+        padding: 0;
+        width: 100% !important;
+        min-height: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .app-popup-content {
+        padding: 20px;
+    }
+
+    /* 关闭弹窗 */
+    .app-popup-close {
+        margin: auto 10px;
+    }
+}

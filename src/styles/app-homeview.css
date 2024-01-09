@@ -1,0 +1,139 @@
+/* ----------------------- 主页 -----------------------*/
+/* #f05672 */
+.app-homeview {
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* 导航栏 */
+.app-homeview-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.app-homeview-nav-rightlayout {
+    width: 350px;
+    display: flex;
+}
+
+.app-homeview-nav-rightlayout>div {
+    margin-right: auto;
+}
+
+.app-homeview-nav-rightlayout>div:nth-child(3) {
+    margin-right: 0;
+}
+
+/* 主页内容宫格布局 */
+.app-homeview-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+/* 官格 */
+.app-grid {
+    display: flex;
+    flex-direction: column;
+    height: 330px;
+    transition: 0.3s;
+    border-radius: 16px;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    background: var(--app-card-background);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.app-grid img {
+    width: 100px;
+    height: 100px;
+    border-radius: 25px;
+}
+
+/* 宫格内的上下布局 */
+.app-grid>article {
+    height: 50%;
+    box-sizing: border-box;
+}
+
+
+.app-grid>article:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 处理官格下半 */
+.app-grid-lower {
+    padding: 20px 30px;
+    display: grid;
+    grid-template-columns: 1fr 45px;
+    box-sizing: border-box;
+}
+
+.app-grid-lower-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.app-grid-lower-left>h2 {
+    padding: 15px 0;
+}
+
+.app-grid-lower-left>p {
+    font-size: 14px;
+}
+
+.app-grid-lower-right {
+    display: flex;
+    align-items: end;
+}
+
+/* 显示功能区 */
+.app-grid-show-fun {
+    width: 43px;
+    height: 43px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50%;
+    background: var(--app-theme);
+    user-select: none;
+    cursor: pointer;
+}
+
+/* 针对大屏幕设备的样式 980+200 px*/
+@media screen and (max-width: 1180px) {
+    .app-homeview {
+        width: 95%;
+    }
+
+    .app-homeview-content {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .app-homeview-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .app-homeview-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .app-homeview-content {
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
+}

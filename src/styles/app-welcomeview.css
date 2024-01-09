@@ -1,0 +1,46 @@
+.app-welcomeview {
+    flex-grow: 1;
+    padding: 0 20px;
+}
+
+.app-welcomeview-content {
+    margin-top: calc(100vh / 4);
+    text-align: center;
+}
+
+.app-welcomeview-content>div:nth-child(2) {
+    font-size: 24px;
+}
+
+.app-welcomeview-content>p {
+    color: rgb(154, 162, 162);
+    font-size: 16px;
+    padding: 15px 0;
+}
+
+.app-welcomeview-creatework {
+    margin: 15px auto;
+    width: 90px;
+    padding: 5px 0;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 800;
+    text-align: center;
+    background: #0b60ff;
+    transition: 0.5s;
+    border-radius: 4px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.app-welcomeview-creatework:hover {
+    background: #0b60ffa5;
+}
+
+.app-welcomeview-form>div {
+    margin: 20px auto;
+}
+
+.app-welcomeview-form>div:nth-child(3) {
+    margin: 60px auto 40px auto;
+}

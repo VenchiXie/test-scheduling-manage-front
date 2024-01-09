@@ -1,0 +1,8 @@
+.app-tableview {
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.semi-table-thead {
+    user-select: none;
+}

@@ -1,0 +1,121 @@
+:root {
+    /* 中文字体样式 */
+    --app-font-family-CN: SF Pro SC, SF Pro Display, SF Pro Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+html,
+body,
+#root,
+header,
+nav,
+main,
+section,
+article,
+aside,
+footer,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+strong,
+ul,
+ol,
+li,
+span,
+a,
+form,
+input,
+label {
+    margin: 0;
+    padding: 0;
+}
+
+/* Dark Mode */
+body[theme-mode="dark"] {
+    --app-theme: #16161a;
+    --app-text-color: #c2c2c3;
+    --app-sidesheet-background: #232429;
+    --app-hover-background: #ffffff99;
+    --app-backdrop-filter-color: #00000000;
+    --app-card-background: #000000;
+}
+
+/* Light Mode */
+body[theme-mode="light"] {
+    --app-theme: #f5f5f7;
+    --app-text-color: #1d1d1f;
+    --app-sidesheet-background: #e8e1ea99;
+    --app-hover-background: #00000099;
+    --app-backdrop-filter-color: #f5f5f74d;
+    --app-card-background: #ffffff;
+}
+
+html,
+body,
+#root {
+    min-height: 100vh;
+}
+
+#root {
+    display: flex;
+}
+
+/* IE/Edge 滚动条 */
+html {
+    overflow: -moz-hidden-unscrollable;
+}
+
+/* Chorme */
+body::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #535bf2;
+    border-radius: 3px;
+}
+
+
+body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue",
+        Helvetica, Arial, sans-serif;
+
+    font-size: 17px;
+    line-height: 1.47059;
+    font-weight: 400;
+    color: var(--app-text-color);
+    background: var(--app-theme);
+    transition: 0.5s;
+    text-rendering: optimizeLegibility;
+    /* 调整字体渲染方式 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: var(--app-text-color);
+}
+
+/* 针对小屏幕设备的样式 */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+        /* 其他针对小屏幕的样式调整 */
+    }
+}
+
+/* 针对大屏幕设备的样式 */
+@media screen and (min-width: 1200px) {
+    body {
+        /* 其他针对大屏幕的样式调整 */
+        font-size: 17px;
+    }
+}
